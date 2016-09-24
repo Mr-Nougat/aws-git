@@ -20,8 +20,8 @@ app.use(function(err, req, res, next){
 });
 
 console.log('starting the Express (NodeJS) Web server');
-var port = process.env.NODE_ENV == 'development' ? 3000 : 80;
-app.listen(port);
+//var port = process.env.NODE_ENV == 'development' ? 3000 : 80;
+app.listen(8080);
 console.log('Webserver is listening on port 8080');
 
 
