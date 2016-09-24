@@ -6,7 +6,7 @@ var os = require('os');
 var app = express();
 
 app.get('/', function(req, res){
-  res.send("Hello World" + os.hostname());
+  res.send("Hello World");
   res.end;
 });
 
@@ -21,7 +21,7 @@ app.use(function(err, req, res, next){
 
 console.log('starting the Express (NodeJS) Web server');
 //var port = process.env.NODE_ENV == 'development' ? 3000 : 80;
-app.listen(8080);
+app.listen(80);
 console.log('Webserver is listening on port 8080');
 
 
