@@ -1,11 +1,12 @@
-var http      = require('http');
 //var mongoose  = require('mongoose');
 var express   = require('express');
+var os = require('os');
+
 
 var app = express();
 
 app.get('/', function(req, res){
-  res.send("Hello World");
+  res.send("Hello World" + os.hostname());
   res.end;
 });
 
@@ -19,7 +20,8 @@ app.use(function(err, req, res, next){
 });
 
 console.log('starting the Express (NodeJS) Web server');
-app.listen(8080);
+var port = process.env.NODE_ENV == 'development' ? 3000 : 80;
+app.listen(port);
 console.log('Webserver is listening on port 8080');
 
 
