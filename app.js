@@ -8,7 +8,7 @@ var app = express();
 
 app.use(express.static( __dirname + '/public'));
 app.get('/', function(req, res){
-	res.sendFile( __dirname + "/public/apps.html");
+	res.sendFile( __dirname + '/apps.html');
 	res.end();
 });
 
