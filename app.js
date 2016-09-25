@@ -1,14 +1,17 @@
 //var mongoose  = require('mongoose');
 var express   = require('express');
 var os = require('os');
+var fs = require('fs');
 
 
 var app = express();
 
 app.get('/', function(req, res){
-  res.send("Hello World");
-  res.end;
+	res.send("go to hey.marom-developers.com/home.html");
+	res.end();
 });
+
+app.use(express.static(__dirname + '/public'));
 
 app.use(function(err, req, res, next){
   if (req.xhr) {
