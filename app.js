@@ -7,7 +7,7 @@ var fs = require('fs');
 var app = express();
 
 app.get('/', function(req, res){
-	res.send("go to hey.marom-developers.com/home.html");
+	res.sendFile( __dirname + "/" + "home.html");
 	res.end();
 });
 
