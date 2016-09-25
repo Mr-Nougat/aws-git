@@ -13,14 +13,14 @@ app.get('/', function(req, res){
 
 app.use(express.static(__dirname + '/public'));
 
-app.use(function(err, req, res, next){
+/* app.use(function(err, req, res, next){
   if (req.xhr) {
     res.send(500, 'Something went wrong!');
   }
   else {
     next(err);
   }
-});
+}); */
 
 console.log('starting the Express (NodeJS) Web server');
 var port = process.env.NODE_ENV == 'development' ? 3000 : 80;
