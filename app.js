@@ -6,12 +6,13 @@ var fs = require('fs');
 
 var app = express();
 
+app.use(express.static(__dirname + '/public'));
 app.get('/', function(req, res){
-	res.sendFile( __dirname + "/" + "home.html");
+	res.sendFile( __dirname + "/public/home.html");
 	res.end();
 });
 
-app.use(express.static(__dirname + '/public'));
+
 
 /* app.use(function(err, req, res, next){
   if (req.xhr) {
