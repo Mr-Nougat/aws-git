@@ -1,0 +1,214 @@
+html{
+   background: url(back1.jpg) no-repeat center center fixed;
+   background-size: cover;
+    position: relative;
+    min-height: 100%;
+}
+
+body{
+    margin: 0 0 100px;
+    height: 100%;
+}
+
+main{
+    height: 100%;
+    width 100%;
+}
+
+#loading {
+   width: 100%;
+   height: 100%;
+   top: 0px;
+   left: 0px;
+   position: fixed;
+   display: block;
+   background-color: #fff;
+   z-index: 99;
+   text-align: center;
+}
+
+#loading-image {
+  position: absolute;
+  height: 300px;
+  width: 300px;
+ top: calc(50% - 150px);
+  left: calc(50% - 150px); 
+  z-index: 100;
+}
+
+#menu{
+    background-color:#5f79c1;
+    height: 120px;
+    Border: 2px solid black;
+    display: block;
+    margin: auto;
+    border-radius: 15px;
+    margin-top: 35px;
+    text-align:center;
+}
+header{
+    opacity: 0.5;
+}
+header:hover{
+    opacity: 0.8;
+}
+
+.menublock{
+    background-color: #182445;
+    color: #5f79c1;
+    width: 150px;
+    height: 110px;
+    /*margin-left: 20px; */
+    margin-right: 20px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    float: right;
+    text-align: center;
+    font-size: 30px;
+    line-height: 120px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    margin-top: 2px;
+    font-family: 'Maitree', serif;
+    font-weight: 700;
+}
+
+
+#appsblock{
+    margin-right: calc(15% - 40px); 
+}
+#title{
+    font-size: 60px;
+    text-align: center;
+    float: left;
+    font-weight: 700;
+    font-family: 'Maitree', serif;
+    line-height: 120px;
+    color: #182445;
+    margin: auto;
+    margin-left: 15%;
+    line-height:120px;
+    vertical-align: middle;
+}
+
+.app{
+    width: 61%;
+    height: 450px;
+    background-color: #51697C;
+    padding: 20px; 
+    margin-left: 15%;
+    margin-top: 50px;
+    border-radius: 15px;
+   background: linear-gradient(-30deg, #310B3F, #08086B);
+    
+}
+
+.content{
+    float: left; 
+    margin-left: 30px; 
+    width: calc(92% - 150px);
+    color: white;
+}
+.icon{
+    width: 150px;
+    float: left;
+}
+.appTitle{
+    font-size: 40px;
+    margin-top: -0.1em; 
+}
+
+.appDes{
+    font-size: 30px;
+    margin-top: -0.5em;
+}
+.link{
+    margin-top: -0.5em;
+    font-size: 25px;
+}
+.content2{
+    clear: both;
+    float: left;
+    width: 100%;
+    margin-left: -10px;
+}
+.screenShot{
+    margin-top: 20px;
+    margin-left: 10px;
+    height: 190px;
+    background-color: aqua;
+    float: left;
+}
+
+
+
+#chris{
+    margin-bottom: 170px;
+    height: 470px;
+}
+
+.english, .hebrew{
+    display: inline-block;
+    background: url('spirite.png') no-repeat;
+    overflow: hidden;
+}
+
+.english{
+    background-position: -1px -0px;
+    width: 50px;
+    height: 25px;
+}
+.hebrew {
+    background-position: -1px -26px;
+    width: 50px;
+    height: 36px; 
+}
+
+.download{
+    width: 340px;
+    height: 150px;
+    padding: 20px;
+    float: left;
+    background-color: #4F8EC4;
+    margin-left: 20px;
+    margin-top: 20px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.playImg{
+    width: 150px;
+    margin-top: 10px;
+}
+
+.info{
+    float: left;
+    font-size: 30px;
+    background-color: #4F8EC4;
+    width: 300px;
+    height: 150px;
+    padding: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
+   /* background: linear-gradient(#1D66A4, #0458A0); */
+    border-radius: 5px;
+}
+
+footer{
+    background-color: #0f1e2b;
+    height: 100px;;
+   position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    font-size: 30px;
+    text-align: left;
+    font-weight: 600;
+    color: white;
+    line-height: 100px;
+}
+#footertext{
+    padding-left: 10%;
+}
+

@@ -1,0 +1,37 @@
+@font-face {
+    font-family: oswald;
+    src: url(https://fonts.googleapis.com/css?family=Oswald);
+}
+
+*{
+    background-color: darkslategray;
+}
+#h1top{
+    color: red;
+    text-align: center;
+    font-size: 70px;
+    font-family: oswald, sans-serif;
+}
+#h1top:hover{
+    color: green;
+}
+
+
+
+.img{
+    display: block;
+    margin: auto;
+}
+
+h2{
+    font-size: 50px;
+    color: black;
+    text-align: center;
+    font-family: oswald, sans-serif;
+}
+h1{
+    font-size: 60px;
+    color: cadetblue;
+    text-align: center;
+    font-family: oswald, sans-serif;
+}
