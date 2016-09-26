@@ -12,9 +12,6 @@ app.get('/', function(req, res){
 	res.end("hello form hey!");
 }); 
 
-app.get('/home.html', function (req, res) {
-   res.sendFile( __dirname + "/" + "home.html" );
-})
 
 app.use(express.static( __dirname + '/public'));
 
