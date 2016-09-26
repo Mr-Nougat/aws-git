@@ -25,7 +25,9 @@ app.get('/process_get', function (req, res) {
 
 app.use(express.static( __dirname + '/public'));
 
-
+app.use(function(req, res, next){
+    res.status(404).render('404_error_template', {title: "Sorry, page not found"});
+});
 
 /* app.use(function(err, req, res, next){
   if (req.xhr) {
@@ -34,7 +36,7 @@ app.use(express.static( __dirname + '/public'));
   else {
     next(err);
   }
-}); */
+});  */
 
 console.log('starting the Express (NodeJS) Web server');
 var port = process.env.NODE_ENV == 'development' ? 3000 : 80;
