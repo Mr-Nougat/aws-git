@@ -27,6 +27,7 @@ app.use(express.static( __dirname + '/public'));
 
 app.use(function(req, res, next){
     res.status(404) //.render('404_error_template', {title: "Sorry, page not found"});
+    res.end();
 });
 
 /* app.use(function(err, req, res, next){
