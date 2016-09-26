@@ -27,6 +27,7 @@ app.use(express.static( __dirname + '/public'));
 
 app.use(function(req, res, next){
     res.status(404); //.render('/public/404.html', {title: "Sorry, page not found"});
+    console.log("404");
     res.sendFile('public/404.html');
 });
 
