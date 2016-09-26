@@ -13,7 +13,7 @@ app.get('/', function(req, res){
 }); 
 
 app.get('/home.html', function (req, res) {
-    res.sendFile( __dirname + "/" + "public" + "/" + "home.html" );
+    res.sendFile( __dirname + "/public/home.js" );
     res.end();
 });
 
