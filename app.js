@@ -16,6 +16,14 @@ app.get('/home.html', function (req, res) {
    res.sendFile( __dirname + "/" + "public" + "/" + "home.html" );
 })
 
+app.get('/home.css', function (req, res) {
+   res.sendFile( __dirname + "/" + "public" + "/" + "home.css" );
+})
+
+app.get('/home.js', function (req, res) {
+   res.sendFile( __dirname + "/" + "public" + "/" + "home.js" );
+})
+
 
 /* app.use(function(err, req, res, next){
   if (req.xhr) {
