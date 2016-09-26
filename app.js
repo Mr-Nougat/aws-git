@@ -6,11 +6,16 @@ var fs = require('fs');
 
 var app = express();
 
-app.use(express.static( __dirname + '/public'));
+//app.use(express.static( __dirname + '/public'));
 
 app.get('/', function(req, res){
 	res.end("hello form hey!");
 }); 
+
+app.get('/home.html', function(req, res){
+    res.sendFile( __dirname + "/public/home.html");
+    res.end();
+});
 
 
 
