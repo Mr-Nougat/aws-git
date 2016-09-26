@@ -12,11 +12,9 @@ app.get('/', function(req, res){
 	res.end("hello form hey!");
 }); 
 
-app.get('/home.html', function(req, res){
-    res.sendFile( __dirname + "/public/home.html");
-    res.end();
-});
-
+app.get('/home.html', function (req, res) {
+   res.sendFile( __dirname + "/" + "home.html" );
+})
 
 
 /* app.use(function(err, req, res, next){
