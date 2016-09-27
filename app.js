@@ -2,16 +2,21 @@
 var express   = require('express');
 var os = require('os');
 var fs = require('fs');
+var path = require('path');
 
 
 var app = express();
 
 app.use(express.static( __dirname + '/public'));
 
-app.get('/', function(req, res){
+/* app.get('/', function(req, res){
 	//res.end("hello form hey!");
     res.sendFile('home.html' );
-})
+}) */
+
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname + '/index.html'));
+});
 
 
 app.get('/process_get', function (req, res) {
