@@ -10,7 +10,7 @@ var app = express();
 
 app.get('/', function(req, res){
 	//res.end("hello form hey!");
-    res.sendFile('/home.html');
+    res.sendFile('home.html', { root: __dirname });
 });
 
 
