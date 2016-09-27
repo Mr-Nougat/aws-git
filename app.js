@@ -8,18 +8,11 @@ var app = express();
 
 app.use(express.static( __dirname + '/public'));
 
-/* app.get('/', function(req, res){
-	//res.end("hello form hey!");
-    res.sendFile('home.html' );
-}) */
-
-/*app.get('/', function(req, res) {
-    res.sendFile( './hh.html');
-}); */
-
-app.get('/home.html', function(req, res){
+app.get('/', function(req, res){
    // res.send("hey welcome!");
-    res.sendFile( __dirname + "/" + "home.html");
+    res.status(200);
+    res.sendFile( __dirname + "/public" + "/home.html");
+    res.end();
 });
 
 
