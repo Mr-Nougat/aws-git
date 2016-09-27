@@ -15,7 +15,7 @@ app.use(express.static( __dirname + '/public'));
 }) */
 
 app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname + '/index.html'));
+    res.sendFile(path.join(__dirname + '/home.html'));
 });
 
 
@@ -32,8 +32,8 @@ app.get('/process_get', function (req, res) {
 
 
 app.use(function(req, res, next){
-    res.send("404 error page not found", 404);
     console.log("404");
+    res.status(404).send('404 error, file not found');
     
 });
 
