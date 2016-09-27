@@ -18,6 +18,10 @@ app.use(express.static( __dirname + '/public'));
     res.sendFile( './hh.html');
 }); */
 
+app.get('/', function(req, res){
+    res.sendFile('./home.html');
+});
+
 
 app.get('/process_get', function (req, res) {
    // Prepare output in JSON format
