@@ -19,7 +19,7 @@ app.use(express.static( __dirname + '/public'));
 
 app.get('/home.html', function(req, res){
    // res.send("hey welcome!");
-    res.sendFile( __dirname + "/" + "home.html");
+    res.sendFile( __dirname + "/" + "hh.html");
 });
 
 
