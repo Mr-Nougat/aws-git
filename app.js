@@ -10,7 +10,7 @@ app.use(express.static( __dirname + '/public'));
 
 app.get('/', function(req, res){
 	//res.end("hello form hey!");
-    res.sendFile( __dirname + 'home.html' );
+    res.sendFile('home.html' );
 })
 
 
