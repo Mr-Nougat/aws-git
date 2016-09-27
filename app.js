@@ -17,9 +17,9 @@ app.use(express.static( __dirname + '/public'));
     res.sendFile( './hh.html');
 }); */
 
-app.get('/', function(req, res){
-    res.send("hey welcome!");
-   // res.sendfile(__dirname + '/home.html');
+app.get('/home.html', function(req, res){
+   // res.send("hey welcome!");
+    res.sendfile( __dirname + "/" + "home.html");
 });
 
 
