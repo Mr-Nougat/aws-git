@@ -6,13 +6,12 @@ var fs = require('fs');
 
 var app = express();
 
-
+app.use(express.static( __dirname + '/public'));
 
 app.get('/', function(req, res){
 	//res.end("hello form hey!");
-    res.sendFile('home.html', { root: __dirname });
-});
-
+    res.sendFile( __dirname + 'home.html' );
+})
 
 
 app.get('/process_get', function (req, res) {
@@ -26,7 +25,6 @@ app.get('/process_get', function (req, res) {
 })
 
 
-app.use(express.static( __dirname + '/public'));
 
 app.use(function(req, res, next){
     res.send("404 error page not found", 404);
