@@ -9,8 +9,11 @@ var app = express();
 
 
 app.get('/', function(req, res){
-	res.end("hello form hey!");
-}); 
+	//res.end("hello form hey!");
+    res.sendFile('/home.html');
+});
+
+
 
 app.get('/process_get', function (req, res) {
    // Prepare output in JSON format
@@ -26,9 +29,9 @@ app.get('/process_get', function (req, res) {
 app.use(express.static( __dirname + '/public'));
 
 app.use(function(req, res, next){
-    res.status(404); //.render('/public/404.html', {title: "Sorry, page not found"});
+    res.send("404 error page not found", 404);
     console.log("404");
-    res.end('error 404');
+    
 });
 
 /* app.use(function(err, req, res, next){
