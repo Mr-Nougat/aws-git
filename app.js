@@ -10,7 +10,7 @@ app.use(express.static( __dirname + '/public'));
 
 app.get('/', function(req, res){
    // res.send("hey welcome!");
-    res.status(200);
+   // res.status(200);
     res.sendFile( __dirname + "/public" + "/home.html");
     res.end();
 });
