@@ -28,13 +28,22 @@ app.get('/process_get', function (req, res) {
    res.end(JSON.stringify(response));
 })
 
-app.post('/process_post', urlencodedParser, function (req, res) {
+/* app.post('/process_post', urlencodedParser, function (req, res) {
    // Prepare output in JSON format
    response = {
       first_dog:req.body.first_dog,
       last_name:req.body.last_dog
    };
    console.log(response);
+   res.end(JSON.stringify(response));
+}) */
+
+app.post('/procces_post', function(req, res){
+    response = {
+      first_dog:req.query.first_dog,
+      last_dog:req.query.last_dog
+   };
+    onsole.log(response);
    res.end(JSON.stringify(response));
 })
 
