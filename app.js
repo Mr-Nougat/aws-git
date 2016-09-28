@@ -46,7 +46,8 @@ app.post('/procces_post', function(req, res) {
 
 app.use(function(req, res, next){
     console.log("404");
-    res.status(404).send('404 error, file not found');
+    res.status(404);
+    res.sendFile( __dirname + "/public" + "/404.html");
     
 });
 
