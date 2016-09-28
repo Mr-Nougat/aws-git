@@ -2,7 +2,10 @@
 var express   = require('express');
 var os = require('os');
 var fs = require('fs');
+var bodyParser = require('body-parser');
 
+// Create application/x-www-form-urlencoded parser
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 var app = express();
 
@@ -20,6 +23,16 @@ app.get('/process_get', function (req, res) {
    response = {
       first_dog:req.query.first_dog,
       last_dog:req.query.last_dog
+   };
+   console.log(response);
+   res.end(JSON.stringify(response));
+})
+
+app.post('/process_post', urlencodedParser, function (req, res) {
+   // Prepare output in JSON format
+   response = {
+      first_dog:req.body.first_dog,
+      last_name:req.body.last_dog
    };
    console.log(response);
    res.end(JSON.stringify(response));
