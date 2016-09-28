@@ -6,6 +6,7 @@ var fs = require('fs');
 var app = express();
 
 app.use(express.static( __dirname + '/public'));
+app.use(express.bodyParser());
 
 app.get('/', function(req, res){
    // res.send("hey welcome!");
