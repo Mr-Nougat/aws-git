@@ -34,11 +34,11 @@ app.post('/procces_post', function(req, res){
    res.end(JSON.stringify(response));
 })
 
-app.post('/file-upload', function(req, res, next) {
-    console.log(req.body);
+app.post('/file_upload', function(req, res) {
+    //console.log(req.body);
     console.log(req.files);
     res.end('no comment');
-});
+})
 
 
 
