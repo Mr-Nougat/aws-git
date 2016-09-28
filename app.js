@@ -47,7 +47,7 @@ app.post('/file-upload', function(req, res) {
             res.send('File uploaded to: ' + target_path + ' - ' + req.files.photo.size + ' bytes');
         });
     });
-};
+});
 
 
 
