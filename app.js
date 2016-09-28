@@ -6,7 +6,6 @@ var fs = require('fs');
 var app = express();
 
 app.use(express.static( __dirname + '/public'));
-app.use(express.bodyParser());
 
 app.get('/', function(req, res){
    // res.send("hey welcome!");
@@ -35,9 +34,12 @@ app.post('/procces_post', function(req, res){
 })
 
 app.post('/file_upload', function(req, res) {
-    //console.log(req.body);
+    response = {
+      last_dog:req.query.last_dog
+    };
+    onsole.log(response);
+    res.end(JSON.stringify(response));
     console.log(req.files);
-    res.end('no comment');
 })
 
 
