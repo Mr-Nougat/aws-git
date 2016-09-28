@@ -2,10 +2,6 @@
 var express   = require('express');
 var os = require('os');
 var fs = require('fs');
-var bodyParser = require('body-parser');
-
-// Create application/x-www-form-urlencoded parser
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 var app = express();
 
@@ -28,16 +24,6 @@ app.get('/process_get', function (req, res) {
    res.end(JSON.stringify(response));
 })
 
-/* app.post('/process_post', urlencodedParser, function (req, res) {
-   // Prepare output in JSON format
-   response = {
-      first_dog:req.body.first_dog,
-      last_name:req.body.last_dog
-   };
-   console.log(response);
-   res.end(JSON.stringify(response));
-}) */
-
 app.post('/procces_post', function(req, res){
     response = {
       first_dog:req.query.first_dog,
@@ -46,6 +32,22 @@ app.post('/procces_post', function(req, res){
     onsole.log(response);
    res.end(JSON.stringify(response));
 })
+
+app.post('/file-upload', function(req, res) {
+    // get the temporary location of the file
+    var tmp_path = req.files.photo.path;
+    // set where the file should actually exists - in this case it is in the "images" directory
+    var target_path = './public/images/' + req.files.photo.name;
+    // move the file from the temporary location to the intended location
+    fs.rename(tmp_path, target_path, function(err) {
+        if (err) throw err;
+        // delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
+        fs.unlink(tmp_path, function() {
+            if (err) throw err;
+            res.send('File uploaded to: ' + target_path + ' - ' + req.files.photo.size + ' bytes');
+        });
+    });
+};
 
 
 
