@@ -24,20 +24,20 @@ app.get('/process_get', function (req, res) {
    res.end(JSON.stringify(response));
 })
 
-app.post('/procces_post', function(req, res){
+/* app.post('/procces_post', function(req, res){
     response = {
       first_dog:req.query.first_dog,
       last_dog:req.query.last_dog
    };
     onsole.log(response);
    res.end(JSON.stringify(response));
-})
+}) */
 
-app.post('/file_upload', function(req, res) {
+app.post('/procces_post', function(req, res) {
     response = {
       last_dog:req.query.last_dog
     };
-    onsole.log(response);
+    console.log(response);
     res.end(JSON.stringify(response));
     console.log(req.files);
 })
