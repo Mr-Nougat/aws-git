@@ -34,20 +34,9 @@ app.post('/procces_post', function(req, res){
    res.end(JSON.stringify(response));
 })
 
-app.post('/file-upload', function(req, res) {
-    // get the temporary location of the file
-    var tmp_path = req.files.photo.path;
-    // set where the file should actually exists - in this case it is in the "images" directory
-    var target_path = './public/images/' + req.files.photo.name;
-    // move the file from the temporary location to the intended location
-    fs.rename(tmp_path, target_path, function(err) {
-        if (err) throw err;
-        // delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
-        fs.unlink(tmp_path, function() {
-            if (err) throw err;
-            res.send('File uploaded to: ' + target_path + ' - ' + req.files.photo.size + ' bytes');
-        });
-    });
+app.post('/file-upload', function(req, res, next) {
+    console.log(req.body);
+    console.log(req.files);
 });
 
 
