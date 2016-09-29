@@ -25,7 +25,7 @@ app.get('/process_get', function (req, res) {
    res.end(JSON.stringify(response));
 })
 
-pp.post('/process_post', urlencodedParser, function (req, res) {
+app.post('/process_post', urlencodedParser, function (req, res) {
    // Prepare output in JSON format
    response = {
       first_dog:req.body.first_dog,
