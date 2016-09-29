@@ -2,11 +2,12 @@
 var express   = require('express');
 var os = require('os');
 var fs = require('fs');
-
+var bodyParser = require('body-parser');
 var app = express();
 
 app.use(express.static( __dirname + '/public'));
-
+/ Create application/x-www-form-urlencoded parser
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
 app.get('/', function(req, res){
    // res.send("hey welcome!");
    // res.status(200);
@@ -24,11 +25,11 @@ app.get('/process_get', function (req, res) {
    res.end(JSON.stringify(response));
 })
 
-app.post('/process_post', function (req, res) {
+pp.post('/process_post', urlencodedParser, function (req, res) {
    // Prepare output in JSON format
    response = {
-      first_dog:req.query.first_dog,
-      last_dog:req.query.last_dog
+      first_dog:req.body.first_dog,
+      last_dog:req.body.last_dog
    };
    console.log(response);
    res.end(JSON.stringify(response));
