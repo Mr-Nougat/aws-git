@@ -35,14 +35,27 @@ app.post('/process_post', urlencodedParser, function (req, res) {
    res.end(JSON.stringify(response));
 })
 
-/* app.post('/procces_post', function(req, res) {
-    response = {
-      last_dog:req.query.last_dog
-    };
-    console.log(response);
-    res.end(JSON.stringify(response));
-    console.log(req.files);
-}) */ 
+app.post('/file_upload', function (req, res) {
+   console.log(req.files.file.name);
+   console.log(req.files.file.path);
+   console.log(req.files.file.type);
+   var file = __dirname + "/" + req.files.file.name;
+   
+   fs.readFile( req.files.file.path, function (err, data) {
+      fs.writeFile(file, data, function (err) {
+         if( err ){
+            console.log( err );
+            }else{
+               response = {
+                  message:'File uploaded successfully',
+                  filename:req.files.file.name
+               };
+            }
+         console.log( response );
+         res.end( JSON.stringify( response ) );
+      });
+   });
+})
 
 
 
