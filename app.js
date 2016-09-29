@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 var app = express();
 
 app.use(express.static( __dirname + '/public'));
-/ Create application/x-www-form-urlencoded parser
+// Create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 app.get('/', function(req, res){
    // res.send("hey welcome!");
