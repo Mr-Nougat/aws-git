@@ -27,8 +27,8 @@ app.get('/process_get', function (req, res) {
 app.post('/process_post', function (req, res) {
    // Prepare output in JSON format
    response = {
-      first_name:req.body.first_dog,
-      last_name:req.body.last_dog
+      first_name:req.query.first_dog,
+      last_name:req.query.last_dog
    };
    console.log(response);
    res.end(JSON.stringify(response));
