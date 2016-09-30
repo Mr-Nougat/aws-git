@@ -10,7 +10,7 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 app.use(express.static( __dirname + '/public'));
 // Create application/x-www-form-urlencoded parser
-app.use(urlencodedParser);
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(multer({ dest: '/tmp/'}));
 
 
