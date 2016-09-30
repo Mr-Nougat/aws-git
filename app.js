@@ -3,15 +3,13 @@ var express   = require('express');
 var os = require('os');
 var fs = require('fs');
 var bodyParser = require('body-parser');
-var multer  = require('multer');
+var fileUpload = require('express-fileupload');
 
 var app = express();
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 app.use(express.static( __dirname + '/public'));
-// Create application/x-www-form-urlencoded parser
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(multer({dest:__dirname+'/uploads/'}).any());
+app.use(fileUpload());
 
 
 
@@ -42,27 +40,25 @@ app.post('/process_post', urlencodedParser, function (req, res) {
    res.end(JSON.stringify(response));
 })
 
-app.post('/file_upload', function (req, res) {
-   console.log(req.files.file.name);
-   console.log(req.files.file.path);
-   console.log(req.files.file.type);
-   var file = __dirname + "/" + req.files.file.name;
-   
-   fs.readFile( req.files.file.path, function (err, data) {
-      fs.writeFile(file, data, function (err) {
-         if( err ){
-            console.log( err );
-            }else{
-               response = {
-                  message:'File uploaded successfully',
-                  filename:req.files.file.name
-               };
-            }
-         console.log( response );
-         res.end( JSON.stringify( response ) );
-      });
-   });
-})
+
+app.post('/upload', function(req, res) {
+    var sampleFile;
+ 
+    if (!req.files) {
+        res.send('No files were uploaded.');
+        return;
+    }
+ 
+    sampleFile = req.files.sampleFile;
+    sampleFile.mv( __dirname + '/uploads/sample.jpg', function(err) {
+        if (err) {
+            res.status(500).send(err);
+        }
+        else {
+            res.send('File uploaded!');
+        }
+    });
+});
 
 
 
