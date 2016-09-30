@@ -3,11 +3,18 @@ var express   = require('express');
 var os = require('os');
 var fs = require('fs');
 var bodyParser = require('body-parser');
+var multer  = require('multer');
+
 var app = express();
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 app.use(express.static( __dirname + '/public'));
 // Create application/x-www-form-urlencoded parser
-var urlencodedParser = bodyParser.urlencoded({ extended: false });
+app.use(urlencodedParser);
+app.use(multer({ dest: '/tmp/'}));
+
+
+
 app.get('/', function(req, res){
    // res.send("hey welcome!");
    // res.status(200);
@@ -17,7 +24,7 @@ app.get('/', function(req, res){
 
 app.get('/process_get', function (req, res) {
    // Prepare output in JSON format
-   response = {
+   response = { 
       first_dog:req.query.first_dog,
       last_dog:req.query.last_dog
    };
