@@ -20,6 +20,8 @@ app.get('/', function(req, res){
    // res.status(200);
     var ipInfo = getIP(req);
     console.log(ipInfo);
+    var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    console.log(ip);
     // { clientIp: '127.0.0.1', clientIpRoutable: false }
     
     res.sendFile( __dirname + "/public" + "/home.html");
