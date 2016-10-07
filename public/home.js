@@ -40,18 +40,9 @@ $("#androidImg").hover(function(){
  $( '#loc' ).click(function() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position){
-        var urlGet = "http://hey.marom-developers.com/process_get?first_dog=" + position.coords.latitude + "&last_dog=" + position.coords.longitude;   
-           
-            var xmlHttp = new XMLHttpRequest();
-            xmlHttp.onreadystatechange = function() { 
-            if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
-                alert(position.coords.latitude + '  ' + position.coords.longitude);   
-                }
-
-            }
-            xmlHttp.open("GET", url, true); // true for asynchronous 
-            xmlHttp.send(null);
-         
+        var lat = position.coords.latitude , long =  position.coords.longitude; 
+        var urlGet = "http://hey.marom-developers.com/process_get?first_dog=" + lat + "&last_dog=" + long;   
+        send(urlGet, lat , long);    
         });
     } 
     else{
@@ -59,4 +50,14 @@ $("#androidImg").hover(function(){
     } 
   }); 
 
-    
+    function send(url, long, lat){
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function() { 
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
+            alert('long: ' + long + ' lat: ' + lat);   
+            }
+                        
+        }
+        xmlHttp.open("GET", url, true); // true for asynchronous 
+        xmlHttp.send(null);
+    }
