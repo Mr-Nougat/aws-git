@@ -19,10 +19,9 @@ app.get('/', function(req, res){
    // res.send("hey welcome!");
    // res.status(200);
     var ipInfo = getIP(req);
-    console.log(ipInfo);
+    ipInfo = ipInfo.clientIp;
     var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-    console.log(ip);
-    // { clientIp: '127.0.0.1', clientIpRoutable: false }
+    console.log('ip: ' + ipInfo + 'or: ' + ip);
     
     res.sendFile( __dirname + "/public" + "/home.html");
 });
