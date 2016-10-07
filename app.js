@@ -7,6 +7,7 @@ var fileUpload = require('express-fileupload');
 
 var app = express();
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
+var getIP = require('ipware')().get_ip;
 
 app.use(express.static( __dirname + '/public'));
 app.use(express.static( __dirname + '/uploads'));
@@ -17,6 +18,10 @@ app.use(fileUpload());
 app.get('/', function(req, res){
    // res.send("hey welcome!");
    // res.status(200);
+    var ipInfo = getIP(req);
+    console.log(ipInfo);
+    // { clientIp: '127.0.0.1', clientIpRoutable: false }
+    
     res.sendFile( __dirname + "/public" + "/home.html");
 });
 
