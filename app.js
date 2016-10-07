@@ -62,8 +62,9 @@ app.post('/upload', function(req, res) {
 });
 
 app.get('/upload', function(req, res){
-    res.send("downloading file right now!");
+   // res.send("downloading file right now!");
     res.download(__dirname + "/uploads" + "/image.jpg"); 
+    res.end();
 });
 
 
