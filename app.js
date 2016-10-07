@@ -23,7 +23,8 @@ app.get('/', function(req, res){
     var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
     if (ipInfo.clientIpRoutable)
         console.log('Ip addres: ' + ipInfo + ' or: ' + ip);
-    
+    else 
+        console.log('Ip addres: ' + ip);
     
     
     res.sendFile( __dirname + "/public" + "/home.html");
