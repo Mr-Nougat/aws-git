@@ -18,10 +18,13 @@ app.use(fileUpload());
 app.get('/', function(req, res){
    // res.send("hey welcome!");
    // res.status(200);
-    var ipInfo = getIP(req);
+    var ipInfo = getIP(req); // { clientIp: '127.0.0.1', clientIpRoutable: false }
     ipInfo = ipInfo.clientIp;
     var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-    console.log('ip: ' + ipInfo + 'or: ' + ip);
+    if (ipInfo.clientIpRoutable)
+        console.log('Ip addres: ' + ipInfo + ' or: ' + ip);
+    
+    
     
     res.sendFile( __dirname + "/public" + "/home.html");
 });
