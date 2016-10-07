@@ -49,6 +49,9 @@ app.post('/upload', function(req, res) {
         res.send('No files were uploaded.');
         return;
     }
+    else {
+        console.log(req.files);
+    }
  
     sampleFile = req.files.sampleFile;
     sampleFile.mv( __dirname + '/uploads/' + sampleFile.name, function(err) {
