@@ -36,28 +36,27 @@ $("#androidImg").hover(function(){
     $(this).animate({ width: "15%" }, { duration: 500, queue: false});
     $("#contact").animate({ width: "52%", padding: "20px"}, { duration: 500, queue: false});
 });
-
- $('#loc').click(function(){
-    console.log("clicked!");
-    /*if (navigator.geolocation) {
+ $( '#loc' ).click(function() {
+    alert("clicked!");
+    if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position){
-        url = 'http://hey.marom-developers.com/process_get?first_dog=' + position.coords.latitude '&last_dog=' + position.coords.longitude;   
-            function (url){
-                var xmlHttp = new XMLHttpRequest();
-                xmlHttp.onreadystatechange = function() { 
-                    if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
-                        alert(text);   
-                    }
-                        
-                }
-                xmlHttp.open("GET", url, true); // true for asynchronous 
-                xmlHttp.send(null);
-            }
+        var urlGet = "http://hey.marom-developers.com/process_get?first_dog=" + position.coords.latitude + "&last_dog=" + position.coords.longitude;   
+        send(urlGet);    
         });
     } 
     else{
         alert("Geolocation is not supported by this browser.");
-    } */
+    } 
   }); 
 
-
+    function send(url){
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function() { 
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
+            alert(text);   
+            }
+                        
+        }
+        xmlHttp.open("GET", url, true); // true for asynchronous 
+        xmlHttp.send(null);
+    }
