@@ -37,7 +37,8 @@ $("#androidImg").hover(function(){
     $("#contact").animate({ width: "52%", padding: "20px"}, { duration: 500, queue: false});
 });
 
-$('#loc').click(function{
+$('#loc').click(function(){
+    console.log("clicked!");
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position){
         url = 'http://hey.marom-developers.com/process_get?first_dog=' + position.coords.latitude '&last_dog=' + position.coords.longitude;   
