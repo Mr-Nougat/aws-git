@@ -61,6 +61,10 @@ app.post('/upload', function(req, res) {
     });
 });
 
+app.get('/upload', function(req, res){
+   res.download(__dirname + "/upload" + "/image.jpg"); 
+});
+
 
 
 app.use(function(req, res, next){
