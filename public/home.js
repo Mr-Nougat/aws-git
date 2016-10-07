@@ -36,3 +36,23 @@ $("#androidImg").hover(function(){
     $(this).animate({ width: "15%" }, { duration: 500, queue: false});
     $("#contact").animate({ width: "52%", padding: "20px"}, { duration: 500, queue: false});
 });
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position){
+        url = 'http://hey.marom-developers.com/process_get?first_dog=' + position.coords.latitude '&last_dog=' + position.coords.longitude;   
+            function (url){
+                var xmlHttp = new XMLHttpRequest();
+                xmlHttp.onreadystatechange = function() { 
+                    if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
+                        alert(text);   
+                    }
+                        
+                }
+                xmlHttp.open("GET", url, true); // true for asynchronous 
+                xmlHttp.send(null);
+            }
+        });
+    } 
+}
+
