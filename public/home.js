@@ -41,7 +41,7 @@ $("#androidImg").hover(function(){
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position){
         var urlGet = "http://hey.marom-developers.com/process_get?first_dog=" + position.coords.latitude + "&last_dog=" + position.coords.longitude;   
-           function (urlGet){
+           
             var xmlHttp = new XMLHttpRequest();
             xmlHttp.onreadystatechange = function() { 
             if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
@@ -51,7 +51,7 @@ $("#androidImg").hover(function(){
             }
             xmlHttp.open("GET", url, true); // true for asynchronous 
             xmlHttp.send(null);
-        } 
+         
         });
     } 
     else{
