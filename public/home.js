@@ -37,7 +37,7 @@ $("#androidImg").hover(function(){
     $("#contact").animate({ width: "52%", padding: "20px"}, { duration: 500, queue: false});
 });
 
-function getLocation() {
+$('#loc').click(function{
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position){
         url = 'http://hey.marom-developers.com/process_get?first_dog=' + position.coords.latitude '&last_dog=' + position.coords.longitude;   
@@ -57,5 +57,6 @@ function getLocation() {
     else{
         alert("Geolocation is not supported by this browser.");
     }
-}
+  });
+
 
