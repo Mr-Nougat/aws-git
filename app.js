@@ -45,7 +45,7 @@ app.post('/process_post', urlencodedParser, function (req, res) {
 app.post('/upload', function(req, res) {
     var sampleFile;
  
-    if (!req.files || req.files.SampleFile.name == '') {
+    if (!req.files || req.files.sampleFile.name == '') {
         res.send('No files were uploaded.');
         return;
     }
