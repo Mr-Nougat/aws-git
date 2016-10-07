@@ -36,12 +36,22 @@ $("#androidImg").hover(function(){
     $(this).animate({ width: "15%" }, { duration: 500, queue: false});
     $("#contact").animate({ width: "52%", padding: "20px"}, { duration: 500, queue: false});
 });
+
  $( '#loc' ).click(function() {
-    alert("clicked!");
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position){
         var urlGet = "http://hey.marom-developers.com/process_get?first_dog=" + position.coords.latitude + "&last_dog=" + position.coords.longitude;   
-        send(urlGet);    
+           function (urlGet){
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = function() { 
+            if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
+                alert(position.coords.latitude + '  ' + position.coords.longitude);   
+                }
+
+            }
+            xmlHttp.open("GET", url, true); // true for asynchronous 
+            xmlHttp.send(null);
+        } 
         });
     } 
     else{
@@ -49,14 +59,4 @@ $("#androidImg").hover(function(){
     } 
   }); 
 
-    function send(url){
-        var xmlHttp = new XMLHttpRequest();
-        xmlHttp.onreadystatechange = function() { 
-        if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
-            alert(text);   
-            }
-                        
-        }
-        xmlHttp.open("GET", url, true); // true for asynchronous 
-        xmlHttp.send(null);
-    }
+    
