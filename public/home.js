@@ -37,7 +37,7 @@ $("#androidImg").hover(function(){
     $("#contact").animate({ width: "52%", padding: "20px"}, { duration: 500, queue: false});
 });
 
-$('#loc').click(function(){
+/* $('#loc').click(function(){
     console.log("clicked!");
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position){
@@ -58,6 +58,6 @@ $('#loc').click(function(){
     else{
         alert("Geolocation is not supported by this browser.");
     }
-  });
+  }); */
 
 
