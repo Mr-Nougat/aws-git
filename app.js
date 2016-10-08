@@ -41,7 +41,11 @@ app.get('/process_get', function (req, res) {
 })
 
 app.post('/process_post', function(req, res) {
-    console.log(JSON.stringify(res.body));
+    response = { 
+        first_dog:req.query.first_dog,
+        last_dog:req.query.last_dog
+    };
+    console.log(response);
     res.end('got information');
 }); 
 
