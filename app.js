@@ -22,7 +22,7 @@ app.get('/', function(req, res){
     ipInfo = ipInfo.clientIp;
     var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
     
-    if (ipInfo.clientIpRoutable)
+    if (!ipInfo.clientIpRoutable)
         console.log('Ip addres: ' + ipInfo + ' or: ' + ip);
     else 
         console.log('Ip addres: ' + ip);
@@ -39,7 +39,7 @@ app.get('/process_get', function (req, res) {
       last_dog:req.query.last_dog
     };
     //var date = getDateTime();
-    console.log(response + ' date: ' + date);
+    console.log(response);
     res.end(JSON.stringify(response));
 })
 
