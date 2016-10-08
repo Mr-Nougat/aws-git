@@ -66,11 +66,11 @@ app.post('/process_post', function(req, res) {
    res.end(JSON.stringify(response));
 }); */
 
-/* app.post("/post", function(req, res) {
-      console.log(req.body.first); 
+app.post('/process_post', function(req, res) {
+      console.log(req.query); 
       res.send("Message received.");
       res.end();
-}); */
+})
 
 
 app.post('/upload', function(req, res) {
