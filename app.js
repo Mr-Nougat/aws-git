@@ -42,8 +42,8 @@ app.get('/process_get', function (req, res) {
 
 app.post('/process_post', function(req, res) {
     response = { 
-        first_dog:req.query.first_dog,
-        last_dog:req.query.last_dog
+        first_dog:req.body.first_dog,
+        last_dog:req.body.last_dog
     };
     console.log(response);
     res.end('got information');
