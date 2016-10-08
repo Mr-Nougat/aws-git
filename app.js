@@ -66,7 +66,7 @@ app.post('/process_post', function(req, res) {
    res.end(JSON.stringify(response));
 }); */
 
-app.post('/process_post', function (req, res) {
+app.all('/process_post', function (req, res) {
       res.send("Message received.");
       res.end();
 })
