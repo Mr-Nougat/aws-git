@@ -58,6 +58,7 @@ app.get('/process_get', function (req, res) {
 }) */
 
 app.post('/process_post', function(req, res) {
+    console.log('got post req');
     response = {
       first_dog:req.body.first_dog,
       last_dog:req.body.last_dog
