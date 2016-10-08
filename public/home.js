@@ -50,7 +50,7 @@ $("#androidImg").hover(function(){
     } 
   }); 
 
-    function send(url, long, lat){
+    function send(url, lat, long){
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.onreadystatechange = function() { 
         if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
