@@ -13,8 +13,7 @@ app.use(express.static( __dirname + '/public'));
 app.use(express.static( __dirname + '/uploads'));
 app.use(fileUpload());
 
-app.use(bodyParser.json()); // support json encoded bodies
-app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+app.use(bodyParser.urlencoded({extended : true}));
 
 
 
@@ -55,7 +54,7 @@ app.get('/process_get', function (req, res) {
    };
    console.log(response);
    res.end(JSON.stringify(response));
-}) */
+}) 
 
 app.post('/process_post', function(req, res) {
     console.log('got post req');
@@ -65,6 +64,12 @@ app.post('/process_post', function(req, res) {
    };
    console.log(response);
    res.end(JSON.stringify(response));
+}); */
+
+app.post("/post", function(req, res) {
+      console.log(req.body.first); 
+      res.send("Message received.");
+      res.end();
 });
 
 
