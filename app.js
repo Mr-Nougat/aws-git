@@ -41,7 +41,7 @@ app.get('/process_get', function (req, res) {
 })
 
 app.post('/process_post', function(req, res) {
-    console.log(res.query);
+    console.log(res.body);
     res.end('got information');
 }); 
 
