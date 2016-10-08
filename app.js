@@ -34,13 +34,12 @@ app.get('/', function(req, res){
 
 app.get('/process_get', function (req, res) {
    // Prepare output in JSON format
-    response = { 
+   response = { 
       first_dog:req.query.first_dog,
       last_dog:req.query.last_dog
-    };
-    //var date = getDateTime();
-    console.log(response);
-    res.end(JSON.stringify(response));
+   };
+   console.log(response);
+   res.end(JSON.stringify(response));
 })
 
 app.post('/process_post', urlencodedParser, function (req, res) {
