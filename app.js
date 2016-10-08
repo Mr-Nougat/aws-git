@@ -39,8 +39,8 @@ app.get('/process_get', function (req, res) {
       last_dog:req.query.last_dog
    };
     var date = getDateTime();
-   console.log(response);
-    console.log('date: ' + date);
+   //console.log(response);
+    console.log(JSON.stringify(response) + 'date: ' + date);
    res.end(JSON.stringify(response));
 })
 
