@@ -6,12 +6,15 @@ var bodyParser = require('body-parser');
 var fileUpload = require('express-fileupload');
 
 var app = express();
-var urlencodedParser = bodyParser.urlencoded({ extended: false });
+//var urlencodedParser = bodyParser.urlencoded({ extended: false });
 var getIP = require('ipware')().get_ip;
 
 app.use(express.static( __dirname + '/public'));
 app.use(express.static( __dirname + '/uploads'));
 app.use(fileUpload());
+
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 
 
@@ -44,7 +47,7 @@ app.get('/process_get', function (req, res) {
     res.end(info);
 })
 
-app.post('/process_post', urlencodedParser, function (req, res) {
+/*app.post('/process_post', urlencodedParser, function (req, res) {
    // Prepare output in JSON format
    response = {
       first_dog:req.body.first_dog,
@@ -52,7 +55,16 @@ app.post('/process_post', urlencodedParser, function (req, res) {
    };
    console.log(response);
    res.end(JSON.stringify(response));
-})
+}) */
+
+app.post('/process_post', function(req, res) {
+    response = {
+      first_dog:req.body.first_dog,
+      last_dog:req.body.last_dog
+   };
+   console.log(response);
+   res.end(JSON.stringify(response));
+});
 
 
 app.post('/upload', function(req, res) {
@@ -63,9 +75,12 @@ app.post('/upload', function(req, res) {
         return;
     }
     
- 
+    
     sampleFile = req.files.sampleFile;
-    sampleFile.mv( __dirname + '/uploads/' + sampleFile.name, function(err) {
+    var name =  sampleFile.name;
+    console.log('uploaded file: ' + name);
+    
+    sampleFile.mv( __dirname + '/uploads/' + name, function(err) {
         if (err) {
             res.status(500).send(err);
         }
@@ -75,10 +90,11 @@ app.post('/upload', function(req, res) {
     });
 });
 
-app.get('/upload', function(req, res){
+// downlaod file e.g:
+/* app.get('/upload', function(req, res){
    // res.send("downloading file right now!");
     res.download( __dirname + "/base" + "/BASE.EXE"); 
-});
+}); */ 
 
 
 
