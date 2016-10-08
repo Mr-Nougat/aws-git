@@ -46,7 +46,7 @@ app.post('/process_post', function(req, res) {
         last_dog:req.body.last_dog
     };
     console.log(response);
-    res.end('got information');
+    res.end(JSON.stringify(response));
 }); 
 
 /*app.post('/process_post', urlencodedParser, function (req, res) {
