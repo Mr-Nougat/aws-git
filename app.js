@@ -40,7 +40,7 @@ app.get('/process_get', function (req, res) {
    };
     var date = getDateTime();
    console.log(response);
-    consolee.log('date: ' + date);
+    console.log('date: ' + date);
    res.end(JSON.stringify(response));
 })
 
