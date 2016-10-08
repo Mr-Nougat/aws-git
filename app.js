@@ -7,27 +7,20 @@ var fileUpload = require('express-fileupload');
 
 var app = express();
 //var urlencodedParser = bodyParser.urlencoded({ extended: false });
-var getIP = require('ipware')().get_ip;
 
 app.use(express.static( __dirname + '/public'));
 app.use(express.static( __dirname + '/uploads'));
 app.use(fileUpload());
 
-app.use(bodyParser.urlencoded({extended : true}));
+app.use(bodyParser.urlencoded({ extended : false }));
 
 
 
 app.get('/', function(req, res){
    // res.send("hey welcome!");
    // res.status(200);
-    var ipInfo = getIP(req); // { clientIp: '127.0.0.1', clientIpRoutable: false }
-    ipInfo = ipInfo.clientIp;
     var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-    
-    if (!ipInfo.clientIpRoutable)
-        console.log('Ip addres: ' + ipInfo + ' or: ' + ip);
-    else 
-        console.log('Ip addres: ' + ip);
+    console.log('Ip addres: ' + ip);
     
     
     res.sendFile( __dirname + "/public" + "/home.html");
@@ -45,6 +38,11 @@ app.get('/process_get', function (req, res) {
     console.log(info + ' Date: ' + date);
     res.end(info);
 })
+
+app.post('/process_post', function(req, res) {
+    console.log(res.query);
+    res.end('got information');
+}); 
 
 /*app.post('/process_post', urlencodedParser, function (req, res) {
    // Prepare output in JSON format
@@ -64,13 +62,13 @@ app.post('/process_post', function(req, res) {
    };
    console.log(response);
    res.end(JSON.stringify(response));
-}); */
+}); 
 
 app.all('/process_post', function (req, res) {
       res.send("Message received.");
       res.end();
-})
-
+}) 
+*/
 
 app.post('/upload', function(req, res) {
     var sampleFile;
@@ -78,7 +76,7 @@ app.post('/upload', function(req, res) {
     if (!req.files || req.files.sampleFile.name == '') {
         res.send('No files were uploaded.');
         return;
-    }
+    } 
     
     
     sampleFile = req.files.sampleFile;
@@ -95,7 +93,7 @@ app.post('/upload', function(req, res) {
     });
 });
 
-// downlaod file e.g:
+// downlaod file:
 /* app.get('/upload', function(req, res){
    // res.send("downloading file right now!");
     res.download( __dirname + "/base" + "/BASE.EXE"); 
