@@ -6,13 +6,14 @@ var bodyParser = require('body-parser');
 var fileUpload = require('express-fileupload');
 
 var app = express();
+app.use(bodyParser.urlencoded({ extended : false }));
 //var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 app.use(express.static( __dirname + '/public'));
 app.use(express.static( __dirname + '/uploads'));
 app.use(fileUpload());
 
-app.use(bodyParser.urlencoded({ extended : false }));
+
 
 
 
