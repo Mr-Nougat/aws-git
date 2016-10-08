@@ -34,14 +34,14 @@ app.get('/', function(req, res){
 
 app.get('/process_get', function (req, res) {
    // Prepare output in JSON format
-   response = { 
-      first_dog:req.query.first_dog,
-      last_dog:req.query.last_dog
-   };
+    response = { 
+        first_dog:req.query.first_dog,
+        last_dog:req.query.last_dog
+    };
     var date = getDateTime();
-   //console.log(response);
-    console.log(JSON.stringify(response) + 'date: ' + date);
-   res.end(JSON.stringify(response));
+    var info = JSON.stringify(response);
+    console.log(info + ' Date: ' + date);
+    res.end(info);
 })
 
 app.post('/process_post', urlencodedParser, function (req, res) {
@@ -92,7 +92,7 @@ function getDateTime() {
 
     var date = new Date();
 
-    var hour = date.getHours();
+    var hour = date.getHours() +3; // ISR time 
     hour = (hour < 10 ? "0" : "") + hour;
 
     var min  = date.getMinutes();
