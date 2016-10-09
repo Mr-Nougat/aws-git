@@ -7,8 +7,6 @@ var fileUpload = require('express-fileupload');
 
 var app = express();
 app.use(bodyParser.urlencoded({ extended : false }));
-//var urlencodedParser = bodyParser.urlencoded({ extended: false });
-
 app.use(express.static( __dirname + '/public'));
 app.use(express.static( __dirname + '/uploads'));
 app.use(fileUpload());
@@ -20,11 +18,9 @@ app.use(fileUpload());
 app.get('/', function(req, res){
    // res.send("hey welcome!");
    // res.status(200);
+    res.sendFile( __dirname + "/public" + "/home.html");
     var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
     console.log('Ip addres: ' + ip);
-    
-    
-    res.sendFile( __dirname + "/public" + "/home.html");
 });
 
 
@@ -34,10 +30,10 @@ app.get('/process_get', function (req, res) {
         first_dog:req.query.first_dog,
         last_dog:req.query.last_dog
     };
-    var date = getDateTime();
     var info = JSON.stringify(response);
-    console.log(info + ' Date: ' + date);
     res.end(info);
+    var date = getDateTime();
+    console.log(info + ' Date: ' + date);
 })
 
 app.post('/process_post', function(req, res) {
